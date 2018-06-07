@@ -5,6 +5,9 @@
         <slot name="teaserTitle">Loading title</slot>
       </h3>
     </header>
+    <figure>
+      <img :src="imgUrl" />
+    </figure>
     <p class="article-teaser__body">
       <slot name="teaserBody">Loading body</slot>
     </p>
@@ -13,11 +16,14 @@
 
 <script>
 export default {
-  name: "ArticleTeaser",
+  name: 'ArticleTeaser',
+  props: ['imgUrl'],
   data() {
-    return {};
+    return {
+
+    }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

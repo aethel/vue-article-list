@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
   name: 'Article',
@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       comments: null
-    };
+    }
   },
   created() {
     axios({
@@ -30,14 +30,15 @@ export default {
       url: 'https://jsonplaceholder.typicode.com/comments'
     }).then(
       response => {
-        this.comments = response.data.filter(comment => comment.postId === this.id);
+        this.comments = response.data.filter(
+          comment => comment.postId === this.id
+        )
       },
       error => console.log(error)
-    );
+    )
   }
-};
+}
 </script>
 
 <style scoped>
-
 </style>
