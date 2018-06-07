@@ -1,0 +1,43 @@
+@import './variables.scss';
+
+body, html {
+  font-family: $default-font;
+  font-size: 10px;
+}
+
+h1,h2,h3,h4 {
+  font-family: $highlight-font;
+  color: $text;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+
+h2 {
+  font-size: 2.2rem;
+}
+
+h3 {
+  font-size: 2rem;    
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+h4 {
+  font-size: 1.8rem;
+}
+
+a {
+  font-size: 1.6rem;
+  color: $active-element;
+  text-decoration: underline;
+  &:after {
+    content: '\2192';
+  }
+}
+
+p {
+  font-size: 1.6rem;
+  color: lighten($dark, 25%);
+}

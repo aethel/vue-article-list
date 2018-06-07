@@ -12,11 +12,7 @@
              {{article.body}}
            </template>
            </article-teaser>
-         <h3 class="article__heading">
-          <!-- {{article.title}} -->
-         </h3>
        </header>
-       <!-- <p class="article__teaser">{{article.body}}</p> -->
      </article>
      <router-link v-bind:to="{name: 'Article', query: {id: article.id, body: article.body}}">Read more</router-link>
    </li>
@@ -27,6 +23,7 @@
 
 <script>
 import axios from 'axios'
+import consts from '@/core/consts'
 import ArticleTeaser from '@/components/articleTeaser/ArticleTeaser'
 
 export default {
@@ -43,7 +40,7 @@ export default {
   mounted () {
     axios({
       method: 'GET',
-      'url': 'https://jsonplaceholder.typicode.com/posts'
+      'url': consts.POSTS_URL
     }).then(response => {
       this.articles = response.data
     }, error => console.log(error))
@@ -51,9 +48,16 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+  @import '@/styles/core.scss';
+  
+  .list {
+    padding: 1rem;
+  }
+
   .list__item {
-    outline: 1px solid pink;
+    margin: 0 0 1.5rem 0;
+    padding: 0 0 1.5rem 0;
+    border-bottom: 0.1rem solid lighten($text, 75%);
   }
 </style>
