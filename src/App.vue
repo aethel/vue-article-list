@@ -13,7 +13,10 @@ export default {
 
 <style lang="scss">
 @import 'styles/core.scss';
+
 #app {
+  background: lighten($dark, 95%);
+  padding: 5rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

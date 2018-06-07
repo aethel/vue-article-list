@@ -3,8 +3,6 @@
  <ul class="list" v-if="articles.length">
    <li class="list__item" v-for="(article, index) in articles" :key="index" v-if="index <= limit">
      <article class="article">
-       {{article.thumbnailUrl}}
-       <header>           
          <article-teaser :imgUrl="article.thumbnailUrl">
            <template slot="teaserTitle">
              {{article.title}}
@@ -12,10 +10,11 @@
            <template slot="teaserBody">
              {{article.body}}
            </template>
+           <template slot="teaserLink">             
+            <router-link :to="{name: 'Article', query: {id: article.id, title: article.title,  body: article.body, image: article.url}}">Continue reading</router-link>
+           </template>
            </article-teaser>
-       </header>
      </article>
-     <router-link v-bind:to="{name: 'Article', query: {id: article.id, body: article.body}}">Read more</router-link>
    </li>
  </ul>
   <div class="sidebar">
@@ -49,17 +48,18 @@ export default {
     const vm = this
     axios
       .all([
-        this.getData({ method: 'GET', url: consts.POSTS_URL }),
-        this.getData({ method: 'GET', url: consts.IMAGES_URL })
+        this.getData({ method: consts.GET, url: consts.POSTS_URL }),
+        this.getData({ method: consts.GET, url: consts.IMAGES_URL })
       ])
       .then(
         axios.spread(function(posts, images) {
-        posts.data.forEach((value,key) => {
-            value = Object.assign({},value, images.data[key])
-            vm.articles.push(value);
-          });
-        })        
-      ).catch(error => console.log(error))
+          posts.data.forEach((value, key) => {
+            value = Object.assign({}, value, images.data[key])
+            vm.articles.push(value)
+          })
+        })
+      )
+      .catch(error => console.log(error))
   }
 }
 </script>
@@ -71,8 +71,10 @@ export default {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1em;
-  max-width: 10.24rem;
+  max-width: 102.4rem;
   margin: 0 auto;
+  border: 0.1rem solid lighten($dark, 90%);
+  background: $bright;
 
   .list {
     grid-column: 1 / span 3;
@@ -80,6 +82,7 @@ export default {
 
   .sidebar {
     grid-column: span 1;
+    padding: 2rem;
   }
 
   @media screen and (max-width: 60rem) {
@@ -91,12 +94,12 @@ export default {
 }
 
 .list {
-  padding: 1rem;
+  padding: 2rem;
 }
 
-.list__item {
+.list__item:not(:last-child) {
   margin: 0 0 1.5rem 0;
   padding: 0 0 1.5rem 0;
-  border-bottom: 0.1rem solid lighten($text, 75%);
+  border-bottom: 0.1rem solid lighten($dark, 95%);
 }
 </style>
