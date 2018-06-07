@@ -8,6 +8,7 @@ body, html {
 h1,h2,h3,h4 {
   font-family: $highlight-font;
   color: $text;
+  text-transform: capitalize;
 }
 
 h1 {

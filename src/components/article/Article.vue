@@ -3,13 +3,13 @@
 <article class="article__content" >
   <router-link v-bind:to="{name: 'ArticleList'}">Home</router-link>
   <header>
-    <h1>{{title}}</h1>
+    <h1 class="article__title">{{title}}</h1>
     <figure>
       <img class="article__image" :src="image"/>
     </figure>
   </header>
-  <p>{{body}}</p>
-  <section>
+  <p class="article__text">{{body}}</p>
+  <section class="article__comments">
   <ul>
     <li v-for="(comment, index) in comments" :key="index">
       <p>
@@ -81,7 +81,6 @@ export default {
 
 .article__content {
   grid-column: 1 / span 3;
-  
 }
 
 .sidebar {
@@ -92,5 +91,14 @@ export default {
 .article__image {
   max-width: 100%;
   width: 100%;
+  margin: 0 0 2.5rem 0;
+}
+
+.article__title {
+  margin: 1rem 0 2rem 0;
+}
+
+.article__text {
+  line-height: 1.6;
 }
 </style>

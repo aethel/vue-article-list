@@ -44,7 +44,6 @@ export default {
 
 .article-teaser__heading {
   max-height: 7.5rem;
-  text-transform: capitalize;
   overflow: hidden;
 }
 
