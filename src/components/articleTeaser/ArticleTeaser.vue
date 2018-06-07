@@ -21,7 +21,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// @import '@/styles/core.scss';
-@import '@/styles/typography.scss'
+@import '@/styles/variables.scss';
+
+.article-teaser__heading {
+  // font-family: $highlight-font;
+  // font-size: 1.3rem;
+}
 </style>
 
