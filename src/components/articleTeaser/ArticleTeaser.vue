@@ -1,24 +1,27 @@
 <template>
-<div>
-<slot name="teaserTitle">
-title
-</slot>
-<slot name="teaserBody">
-bod
-</slot>
-</div>
+  <article class="article-teaser">
+    <header>
+      <h3 class="article-teaser__heading">
+        <slot name="teaserTitle">Loading title</slot>
+      </h3>
+    </header>
+    <p class="article-teaser__body">
+      <slot name="teaserBody">Loading body</slot>
+    </p>
+  </article>
 </template>
 
 <script>
 export default {
   name: 'ArticleTeaser',
-  data (){
-    return { }
+  data() {
+    return {};
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-
+// @import '@/styles/core.scss';
+@import '@/styles/typography.scss'
 </style>
 
