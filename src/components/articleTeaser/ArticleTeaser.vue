@@ -13,7 +13,7 @@
 
 <script>
 export default {
-  name: 'ArticleTeaser',
+  name: "ArticleTeaser",
   data() {
     return {};
   }
@@ -21,11 +21,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '@/styles/variables.scss';
-
 .article-teaser__heading {
-  // font-family: $highlight-font;
-  // font-size: 1.3rem;
+  max-height: 7.5rem;
+}
+
+.article-teaser__body {
+  margin-bottom: 1rem;
+  line-height: 1.3;
 }
 </style>
 
