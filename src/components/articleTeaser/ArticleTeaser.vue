@@ -21,7 +21,7 @@
 export default {
   name: 'ArticleTeaser',
   props: ['imgUrl'],
-  data() {
+  data () {
     return {}
   }
 }
@@ -29,7 +29,7 @@ export default {
 
 <style lang="scss" scoped>
 .article-teaser {
-  display: flex;  
+  display: flex;
 }
 
 .article-teaser__image {
@@ -52,4 +52,3 @@ export default {
   line-height: 1.3;
 }
 </style>
-

@@ -35,35 +35,35 @@
 </template>
 
 <script>
-import axios from 'axios';
-import consts from '@/core/consts';
+import axios from 'axios'
+import consts from '@/core/consts'
 
 export default {
   name: 'Article',
   props: ['id', 'title', 'body', 'image'],
-  data() {
+  data () {
     return {
       comments: null
-    };
-  },
-  methods: {
-    getData: function(config) {
-      return axios(config);
     }
   },
-  created() {
+  methods: {
+    getData: function (config) {
+      return axios(config)
+    }
+  },
+  created () {
     axios(
       this.getData({method: consts.GET, url: consts.COMMENTS_URL}).then(
         response => {
           this.comments = response.data.filter(
             comment => comment.postId === this.id
-          );
+          )
         },
         error => console.log(error)
       )
-    );
+    )
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

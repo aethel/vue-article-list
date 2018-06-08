@@ -10,7 +10,7 @@
            <template slot="teaserBody">
              {{article.body}}
            </template>
-           <template slot="teaserLink">             
+           <template slot="teaserLink">
             <router-link :to="{name: 'Article', query: {id: article.id, title: article.title,  body: article.body, image: article.url}}">Continue reading</router-link>
            </template>
            </article-teaser>
@@ -34,17 +34,17 @@ export default {
     'article-teaser': ArticleTeaser
   },
   methods: {
-    getData: function(config) {
+    getData: function (config) {
       return axios(config)
     }
   },
-  data() {
+  data () {
     return {
       articles: [],
       limit: 10
     }
   },
-  mounted() {
+  mounted () {
     const vm = this
     axios
       .all([
@@ -52,7 +52,7 @@ export default {
         this.getData({ method: consts.GET, url: consts.IMAGES_URL })
       ])
       .then(
-        axios.spread(function(posts, images) {
+        axios.spread(function (posts, images) {
           posts.data.forEach((value, key) => {
             value = Object.assign({}, value, images.data[key])
             vm.articles.push(value)

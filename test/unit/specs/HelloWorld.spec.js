@@ -1,11 +1,16 @@
 import Vue from 'vue'
-import HelloWorld from '@/components/HelloWorld'
+import {mount} from '@vue/test-utils'
+import ArticleList from '@/components/articleList/ArticleList'
 
-describe('HelloWorld.vue', () => {
-  it('should render correct contents', () => {
-    const Constructor = Vue.extend(HelloWorld)
-    const vm = new Constructor().$mount()
-    expect(vm.$el.querySelector('.hello h1').textContent)
-      .toEqual('Welcome to Your Vue.js App')
+describe('ArticleList.vue', () => {
+  it('should exist', () => {
+    const wrapper = mount(ArticleList);
+    expect(wrapper.exists()).toBeTruthy();
+  })
+
+  it('should be Vue instance', () => {
+    const wrapper = mount(ArticleList);
+    expect(wrapper.isVueInstance()).toBeTruthy();
+    expect(wrapper.exists()).toBeTruthy();
   })
 })
